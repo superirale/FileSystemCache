@@ -38,7 +38,6 @@ class FileSystemCache
 		$file = $this->getFileName($key);
 	
 		if(!file_exists($file) || !is_readable($file)){
-			unlink($file);
 			$this->errors[] = "Cannot read $file";
 			return false;
 		}
