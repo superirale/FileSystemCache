@@ -1,4 +1,5 @@
 <?php
+namespace Superirale\FileSystemCache;
 
 class FileSystemCache
 {
@@ -16,7 +17,7 @@ class FileSystemCache
 	{
 		try {
 
-			$fileHandle = fopen($this->getFileName($key),'w');
+			$fileHandle = fopen($this->getFileName($key), 'w');
 
 			flock($fileHandle, LOCK_EX); // exclusive lock, will get released when the file is closed
 		    fseek($fileHandle, 0); // go to the beginning of the file
@@ -42,7 +43,7 @@ class FileSystemCache
 			return false;
 		}
 
-		$fileHandle = fopen($file,'r');
+		$fileHandle = fopen($file, 'r');
 
 	    if(!$fileHandle) {
 	    	$this->error[] = 'Can not read Cache';
